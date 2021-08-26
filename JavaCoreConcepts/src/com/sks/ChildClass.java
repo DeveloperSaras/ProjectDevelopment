@@ -9,5 +9,10 @@ public class ChildClass extends PolymorphismExample {
 
 		System.out.println("This is method overloading example from child class.");
 	}
+	
+	void display() {
+		
+		System.out.println("Printing some text.");
+	}
 
 }

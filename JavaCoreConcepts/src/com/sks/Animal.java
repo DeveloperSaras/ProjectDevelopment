@@ -6,7 +6,9 @@ package com.sks;
 //All methods in interface have to be public
 public interface Animal {
 	
-	public void eat();
+	public int NAME = 10;
+	
+	void eat();
 	
 	public void walk();
 	
