@@ -8,8 +8,8 @@ public class Tiger extends Cat implements WildAnimal {
 	
 	
 
-	@Override
-	public void hunt() {
-	}
+	/*
+	 * @Override public void hunt() { }
+	 */
 
 }
