@@ -3,7 +3,9 @@ package com.sks;
 public class CatMainClass {
 	
 	public static void main(String[] args) throws Exception {
-		
+		 char c = 23;
+		 
+		 System.out.println(c);
 		
 		Cat cat = new Cat(); 
 		  
