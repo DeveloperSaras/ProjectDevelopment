@@ -1,0 +1,103 @@
+package com.sks;
+
+public class DoublyLinkedList {
+
+	//below static inner class is 
+	//the doubly linked list
+	class Node {
+		private int data;
+		private Node previousVal;
+		private Node nextVal;
+	}
+
+	//this is the head of the doubly linked list 
+	private Node head = null;
+
+	//This method rotates a doubly linked
+	//noOfTimesRotation times
+	public void rotateList(int noOfTimesRotation) {
+		//if Value of noOfTimesRotation is 0. It means the list
+		//remains same. Thus we return immediately
+		if (noOfTimesRotation == 0)
+			return;
+
+		Node currentVal = head;
+
+		//move every value till the count is less than noOfTimesRotation
+		int count = 1;
+		while (count < noOfTimesRotation && currentVal != null) {
+			currentVal = currentVal.nextVal;
+			count++;
+		}
+
+		if (currentVal == null)
+			return;
+
+		// currentVal points to Nth node. Store
+		// it in a variable.
+		Node NthNode = currentVal;
+
+		// currentVal will point to last node
+		while (currentVal.nextVal != null) {
+			currentVal = currentVal.nextVal;
+		}
+
+		currentVal.nextVal = head;
+
+		// Change prev of Head node to current
+		(head).previousVal = currentVal;
+
+		// Change head to (N+1)th node
+		// head is changed to next node
+		head = NthNode.nextVal;
+
+		// Change prev of New Head node to NULL
+		// Because Prev of Head Node in Doubly
+		// linked list is NULL
+		head.previousVal = null;
+
+		// change next of Nth node to NULL
+		NthNode.nextVal = null;
+	}
+
+	// Method to insert a node at the
+	// beginning of the Doubly Linked List
+	public void push(int newData) {
+		Node newNode = new Node();
+		newNode.data = newData;
+		
+		if (head == null)
+	    {
+	        head = new Node();
+	        head.data = newData;
+	        return;
+	    }
+	 
+		newNode.nextVal = null;
+	 
+	    Node last = head;
+	    while (last.nextVal != null)
+	        last = last.nextVal;
+	 
+	    last.nextVal = newNode;
+	}
+
+	//This method prints the list
+	public void displayList(Node node) {
+		while (node != null && node.nextVal != null) {
+			System.out.print(node.data + " ");
+			node = node.nextVal;
+		}
+		if (node != null)
+			System.out.print(node.data);
+	}
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
+
+}
