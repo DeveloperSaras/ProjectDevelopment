@@ -1,0 +1,45 @@
+package com.sks;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayListExample {
+
+	// below constant will define how many elements will be
+	// added in the list
+	public static final int NO_OF_LOOPS = 3;
+
+	// below constant determines the first value in the
+	// list
+	public static final int FIRST_VALUE = 20;
+
+	// below constant determines the difference between
+	// two consecutive values in the list
+	public static final int VALUE_DIFFERENCE = 10;
+
+	public static void main(String[] args) {
+		System.out.println(NO_OF_LOOPS);
+
+		List<Integer> list = new ArrayList<>();
+
+		for (int i = 0; i < NO_OF_LOOPS; i++) {
+			list.add(i, FIRST_VALUE + i * VALUE_DIFFERENCE);
+		}
+
+		int counter = 0;
+
+		System.out.println("While Loop:");
+		while (counter < list.size()) {
+			System.out.println(list.get(counter));
+			counter++;
+		}
+		System.out.println("Advanced For Loop:");
+		for (int val : list) {
+			System.out.println(val);
+		}
+		System.out.println("For Loop:");
+		for (counter = 0; counter < list.size(); counter++) {
+			System.out.println(list.get(counter));
+		}
+	}
+}
